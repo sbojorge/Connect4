@@ -14,7 +14,7 @@ is getting too close to 4 in a row, block him/her with
 your own letter!\n""")
 
 player = None
-computer = random.randint(0,6)
+computer = random.randint(0, 6)
 game_running = True
 
 
@@ -33,6 +33,17 @@ def create_board():
 
     print(tabulate(rows, headers, tablefmt='grid',
           showindex='always'))
-
+    print('\n')
 
 create_board()
+
+
+def welcome():
+    """
+    Short introduction for interacting with the user
+    """
+    name = input("Hi, what's your name?: ")
+    print(f'Welcome {name}! You are player 1 and your letter is R.')
+    print("I am player 2 and my letter is Y. Let's play!\n")
+
+welcome()
