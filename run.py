@@ -29,7 +29,7 @@ def create_board():
             ["", "", "", "", "", "", ""],
             ["", "", "", "", "", "", ""]]
 
-    headers = [0, 1, 2, 3, 4, 5]
+    headers = [0, 1, 2, 3, 4, 5, 6]
 
     print(Back.BLACK, tabulate(rows, headers, tablefmt='grid',
           showindex='always'))
@@ -62,7 +62,6 @@ def players_input():
                   f'My choice is {computer}.')
     except ValueError as e:
         print(f'Invalid data:{e} please enter a valid number.')
-    # create_board()
 
 
 def play_game():
