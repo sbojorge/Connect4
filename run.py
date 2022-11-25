@@ -18,9 +18,6 @@ is getting too close to 4 in a row, block him/her with
 your own letter!\n""")
 
 
-game_running = True
-
-
 def create_board():
     """
     Using the tabulate module,prints the board for playing
@@ -34,12 +31,10 @@ def create_board():
 
     headers = [0, 1, 2, 3, 4, 5]
 
-    print(Back.BLACK,tabulate(rows, headers, tablefmt='grid',
+    print(Back.BLACK, tabulate(rows, headers, tablefmt='grid',
           showindex='always'))
-    print(Style.RESET_ALL)      
+    print(Style.RESET_ALL)
     print('\n')
-
-create_board()
 
 
 def welcome():
@@ -50,8 +45,6 @@ def welcome():
     print(f'Welcome {name}! You are player 1 and your letter is R.')
     print("I am player 2 and my letter is Y. Let's play!\n")
 
-welcome()
-
 
 def players_input():
     """
@@ -60,7 +53,7 @@ def players_input():
     """
     try:
         computer = random.randint(0, 6)
-        player = int(input('Please choose a column from 0-6: '))      
+        player = int(input('Please choose a column from 0-6: '))
         if player not in range(7):
             raise ValueError('Valid numbers for playing are 0-6.\n'
                              f'You entered {player}')
@@ -71,11 +64,16 @@ def players_input():
         print(f'Invalid data:{e} please enter a valid number.')
     # create_board()
 
+
 def play_game():
     """
     Main function for playing Connect 4
     """
-    while game_running:    
+    welcome()
+    create_board()
+    game_running = True
+    while game_running:
         players_input()
+
 
 play_game()
