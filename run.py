@@ -4,9 +4,13 @@ Modules used for writing the code of this project
 import random
 from tabulate import tabulate
 import pyfiglet
+from colorama import (Fore, Back,
+                      Style)
 
 
-print(pyfiglet.figlet_format('Connect 4', font='slant', justify='center'))
+print(Fore.RED, pyfiglet.figlet_format('Connect 4', font='slant',
+      justify='center'))
+print(Style.RESET_ALL)
 
 print("""Drop your letter in one of the 7 columns of the grid.
 Be the first to get 4 in a row to win. If your opponent
@@ -30,8 +34,9 @@ def create_board():
 
     headers = [0, 1, 2, 3, 4, 5]
 
-    print(tabulate(rows, headers, tablefmt='grid',
+    print(Back.BLACK,tabulate(rows, headers, tablefmt='grid',
           showindex='always'))
+    print(Style.RESET_ALL)      
     print('\n')
 
 create_board()
