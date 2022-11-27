@@ -17,9 +17,7 @@ Be the first to get 4 in a row to win. If your opponent
 is getting too close to 4 in a row, block him/her with
 your own letter!\n""")
 
-"""
-Create the grid for the game
-"""
+# For the grid of the game
 
 row_0 = ["", "", "", "", "", "", ""]
 row_1 = ["", "", "", "", "", "", ""]
@@ -45,11 +43,9 @@ def create_board():
     print('\n')
 
 
-"""
-Global variables
-"""
+# Global variables
 player = None
-computer = random.randint(0,6)
+computer = random.randint(0, 6)
 
 
 def welcome():
@@ -69,7 +65,7 @@ def players_input():
     try:
         global computer
         global player
-        computer = random.randint(0, 6)        
+        computer = random.randint(0, 6)
         player = int(input('Please choose a column from 0-6: '))
         if player not in range(7):
             raise ValueError('Valid numbers for playing are 0-6.\n'
@@ -81,9 +77,9 @@ def players_input():
         print(f'Invalid data:{e} please enter a valid number.')
 
 
-def display_choices():
+def display_choices_player():
     """
-    Display player's and computer's position on the grid
+    Display player's position on the grid
     """
     if rows[5][player] == '':
         rows[5][player] = 'R'
@@ -99,9 +95,32 @@ def display_choices():
         rows[0][player] = 'R'
     else:
         print('Tie!')
-create_board()
-    
-    
+
+    create_board()
+
+
+def display_choices_computer():
+    """
+    Display computer's position on the grid
+    """
+    if rows[5][computer] == '':
+        rows[5][computer] = 'Y'
+    elif rows[4][computer] == '':
+        rows[4][computer] = 'Y'
+    elif rows[3][computer] == '':
+        rows[3][computer] = 'Y'
+    elif rows[2][computer] == '':
+        rows[2][computer] = 'Y'
+    elif rows[1][computer] == '':
+        rows[1][computer] = 'Y'
+    elif rows[0][computer] == '':
+        rows[0][computer] = 'Y'
+    else:
+        print('Tie!')
+
+    create_board()
+
+
 def play_game():
     """
     Main function for playing Connect 4
@@ -109,22 +128,10 @@ def play_game():
     # welcome()
     # create_board()
     game_running = True
-    while game_running:        
+    while game_running:
         players_input()
-        display_choices()                
-
-play_game()           
-            
-    
-
-    
+        display_choices_player()
+        display_choices_computer()
 
 
-      
-            
-
-
-
-
-
-
+play_game()
