@@ -17,17 +17,25 @@ Be the first to get 4 in a row to win. If your opponent
 is getting too close to 4 in a row, block him/her with
 your own letter!\n""")
 
+"""
+Create the grid for the game
+"""
+
+row_0 = ["", "", "", "", "", "", ""]
+row_1 = ["", "", "", "", "", "", ""]
+row_2 = ["", "", "", "", "", "", ""]
+row_3 = ["", "", "", "", "", "", ""]
+row_4 = ["", "", "", "", "", "", ""]
+row_5 = ["", "", "", "", "", "", ""]
+rows = [row_0, row_1, row_2, row_3, row_4, row_5]
+rows.reverse()
+
 
 def create_board():
     """
     Using the tabulate module,prints the board for playing
     """
-    rows = [["", "", "", "", "", "", ""],
-            ["", "", "", "", "", "", ""],
-            ["", "", "", "", "", "", ""],
-            ["", "", "", "", "", "", ""],
-            ["", "", "", "", "", "", ""],
-            ["", "", "", "", "", "", ""]]
+    global rows
 
     headers = [0, 1, 2, 3, 4, 5, 6]
 
@@ -35,6 +43,13 @@ def create_board():
           showindex='always'))
     print(Style.RESET_ALL)
     print('\n')
+
+
+"""
+Global variables
+"""
+player = None
+computer = random.randint(0,6)
 
 
 def welcome():
@@ -52,7 +67,9 @@ def players_input():
     checks that input is valid
     """
     try:
-        computer = random.randint(0, 6)
+        global computer
+        global player
+        computer = random.randint(0, 6)        
         player = int(input('Please choose a column from 0-6: '))
         if player not in range(7):
             raise ValueError('Valid numbers for playing are 0-6.\n'
@@ -64,15 +81,50 @@ def players_input():
         print(f'Invalid data:{e} please enter a valid number.')
 
 
+def display_choices():
+    """
+    Display player's and computer's position on the grid
+    """
+    if rows[5][player] == '':
+        rows[5][player] = 'R'
+    elif rows[4][player] == '':
+        rows[4][player] = 'R'
+    elif rows[3][player] == '':
+        rows[3][player] = 'R'
+    elif rows[2][player] == '':
+        rows[2][player] = 'R'
+    elif rows[1][player] == '':
+        rows[1][player] = 'R'
+    elif rows[0][player] == '':
+        rows[0][player] = 'R'
+    else:
+        print('Tie!')
+create_board()
+    
+    
 def play_game():
     """
     Main function for playing Connect 4
     """
-    welcome()
-    create_board()
+    # welcome()
+    # create_board()
     game_running = True
-    while game_running:
+    while game_running:        
         players_input()
+        display_choices()                
+
+play_game()           
+            
+    
+
+    
 
 
-play_game()
+      
+            
+
+
+
+
+
+
