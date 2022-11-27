@@ -72,7 +72,7 @@ def players_input():
                              f'You entered {player}')
         else:
             print(f'Your choice is {player}\n'
-                  f'My choice is {computer}.')
+                  f'My choice is {computer}')
     except ValueError as e:
         print(f'Invalid data:{e} please enter a valid number.')
 
@@ -95,8 +95,6 @@ def display_choices_player():
         rows[0][player] = 'R'
     else:
         print('Tie!')
-
-    create_board()
 
 
 def display_choices_computer():
