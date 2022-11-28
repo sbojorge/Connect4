@@ -50,11 +50,23 @@ computer = random.randint(0, 6)
 
 def welcome():
     """
-    Short introduction for interacting with the user
+    Ask user's name and check that it isn't an empty string.
+    If it is, then raise an error until name is a valid
+    input
     """
-    name = input("Hi, what's your name?: ")
-    print(f'Welcome {name}! You are player 1 and your letter is R.')
-    print("I am player 2 and my letter is Y. Let's play!\n")
+    name = None
+    while not name:
+        try:
+            name = input("Hi, what's your name?: ")
+            if name == '':
+                raise RuntimeError("Empty space isn't a name")
+            else:
+                print(f'Welcome {name}! You are player 1 and '
+                      'your letter is R.')
+                print("I am player 2 and my letter is Y. Let's play!\n")
+                break
+        except RuntimeError as e:
+            print(f'Invalid data:{e} .')
 
 
 def players_input():
@@ -123,8 +135,8 @@ def play_game():
     """
     Main function for playing Connect 4
     """
-    # welcome()
-    # create_board()
+    create_board()
+    welcome()
     game_running = True
     while game_running:
         players_input()
