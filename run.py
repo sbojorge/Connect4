@@ -93,20 +93,23 @@ def display_choices_player():
     """
     Display player's position on the grid
     """
-    if rows[5][player] == '':
-        rows[5][player] = 'R'
-    elif rows[4][player] == '':
-        rows[4][player] = 'R'
-    elif rows[3][player] == '':
-        rows[3][player] = 'R'
-    elif rows[2][player] == '':
-        rows[2][player] = 'R'
-    elif rows[1][player] == '':
-        rows[1][player] = 'R'
-    elif rows[0][player] == '':
-        rows[0][player] = 'R'
+    if player in range(7):
+        if rows[5][player] == '':
+            rows[5][player] = 'R'
+        elif rows[4][player] == '':
+            rows[4][player] = 'R'
+        elif rows[3][player] == '':
+            rows[3][player] = 'R'
+        elif rows[2][player] == '':
+            rows[2][player] = 'R'
+        elif rows[1][player] == '':
+            rows[1][player] = 'R'
+        elif rows[0][player] == '':
+            rows[0][player] = 'R'
+        else:
+            print('Tie!')
     else:
-        print('Tie!')
+        print("Your current choice isn't valid")
 
 
 def display_choices_computer():
