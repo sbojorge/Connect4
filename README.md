@@ -1,9 +1,15 @@
 # Connect 4
 
-Connect 4 is a logic and strategy game played with a grid of 7 columns and 6 rows (42 quadrants available). Each player, usually 2, has 21 tiles to play.
+Connect Four (also known as Connect 4, Four Up, Plot Four, Find Four, Captain's Mistress, Four in a Row, Drop Four, and Gravitrips in the Soviet Union) is a two-player connection board game, in which the players choose a color and then take turns dropping colored tokens into a seven-column, six-row vertically suspended grid. The pieces fall straight down, occupying the lowest available space within the column. The objective of the game is to be the first to form a horizontal, vertical, or diagonal line of four of one's own tokens.
 
-The objective is to complete a segment of 4 tiles in a row on the grid, either horizontally, vertically or diagonally. The first is to achieve it is the winner.
+# How to play
 
-The tiles can be placed on the grid only at the top of it. It means that the main axis of the game are the columns and that the first positions or quadrants to fill will be those of the lower row. The grid will be then filled from top to bottom.
+In this my version of Connect 4, the user plays against the computer and the tokens are replaced by letters: 'R' as red and 'Y' as yellow.
+User is player 1 (R) and computer is player 2 (Y).
+User is prompted to choose a column number for dropping his/her letter and the computer randomly provides a column number for dropping its.
+The game will run until someone makes 4 in a row.
 
-Players should choose carefully column to drop the tile and will allow them to complete 4 in a row while placing checkers to block their opponent and thus prevent him from winning.
+# Credits
+
+[Wikipedia](https://en.wikipedia.org/wiki/Connect_Four)
+
