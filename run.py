@@ -133,6 +133,15 @@ def display_choices_computer():
     create_board()
 
 
+def check_win():
+    """
+    Check if there are 4 in a row
+    """
+    # check horizontal
+    # check vertical
+    # check diagonal
+
+
 def play_game():
     """
     Main function for playing Connect 4
