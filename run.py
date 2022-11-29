@@ -57,7 +57,7 @@ def welcome():
     name = None
     while not name:
         try:
-            name = input("Hi, what's your name?: ")
+            name = input("Hi, what's your name?: \n")
             if name == '':
                 raise RuntimeError("Empty space isn't a name")
             else:
@@ -78,7 +78,7 @@ def players_input():
         global computer
         global player
         computer = random.randint(0, 6)
-        player = int(input('Please choose a column from 0-6: '))
+        player = int(input('Please choose a column from 0-6: \n'))
         if player not in range(7):
             raise ValueError('Valid numbers for playing are 0-6.\n'
                              f'You entered {player}')
