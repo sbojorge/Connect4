@@ -9,6 +9,8 @@ User is player 1 (R) and computer is player 2 (Y).
 User is prompted to choose a column number for dropping his/her letter and the computer randomly provides a column number for dropping its.
 The game will run until someone makes 4 in a row.
 
+This is the link to the deployed application: [sbo-connect4](https://sbo-connect4.herokuapp.com/)
+
 # Credits
 
 [Wikipedia](https://en.wikipedia.org/wiki/Connect_Four)
