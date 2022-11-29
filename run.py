@@ -8,8 +8,7 @@ from colorama import (Fore, Back,
                       Style)
 
 
-print(Fore.RED, pyfiglet.figlet_format('Connect 4', font='slant',
-      justify='center'))
+print(Fore.RED, pyfiglet.figlet_format('CONNECT 4', font='larry3d'))
 print(Style.RESET_ALL)
 
 print("""Drop your letter in one of the 7 columns of the grid.
