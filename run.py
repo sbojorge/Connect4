@@ -8,14 +8,6 @@ from colorama import (Fore, Back,
                       Style)
 
 
-print(Fore.RED, pyfiglet.figlet_format('CONNECT 4', font='larry3d'))
-print(Style.RESET_ALL)
-
-print("""Drop your letter in one of the 7 columns of the grid.
-Be the first to get 4 in a row to win. If your opponent
-is getting too close to 4 in a row, block him with
-your own letter!\n""")
-
 # For the grid of the game
 
 row_0 = ["", "", "", "", "", "", ""]
@@ -133,26 +125,56 @@ def display_choices_computer():
     create_board()
 
 
-def check_win():
+def check_horizontal_win():
     """
     Check if there are 4 in a row
     """
     # check horizontal
-    # check vertical
-    # check diagonal
+    # Set row number
+    row_number = 0
+    # Outer loop so we can loop through each row
+    for i in range(0, 5):
+        # Inner loop to check each element in single list
+        for j in range(0, len(row_0)+1):
+            # Create a set if 4 are the same in a row
+            # eval so we can use row_number variable
+            check = set(eval(f"row_{row_number}[j-4:j]"))
+            # Check is set is made and that set isn't matching 4 empty strings
+            if len(check) == 1 and '' not in check:
+                if 'R' in check:
+                    print('PLAYER WINS')
+                else:
+                    print('COMPUTER WINS')
+                    # Stop game
+                # game_running = False
+            # Increase row number
+        row_number += 1
+
+
+def check_vertical_win():
+    """
+    Checks for 4 in a column
+    """
+
+
+def check_diagonal_win():
+    """
+    Checks for 4 in a diagonal
+    """
 
 
 def play_game():
     """
     Main function for playing Connect 4
     """
-    create_board()
-    welcome()
+    # create_board()
+    # welcome()
     game_running = True
     while game_running:
         players_input()
         display_choices_player()
         display_choices_computer()
+        check_horizontal_win()
 
 
 play_game()
