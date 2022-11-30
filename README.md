@@ -49,7 +49,7 @@ All the structure of the game and its logic have been bind in, as much as possib
 (each  function performing only one task).
 The name of the functions have been set with the intention of describing the function's purpose and the added
 docstring reinforces it.
-Following good Python practices, the functions to run the game are called within a main function.
+
 
 ## Testing
 
@@ -100,6 +100,8 @@ These are the steps followed for completing the deployment:
 
 
  Heroku will make the necessary and a button 'View your page' will redirect you to the deployed application.
+
+ ![View button image](assets/images/image-12.webp)
 
 
 ## Credits
