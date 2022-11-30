@@ -13,7 +13,7 @@ print(Style.RESET_ALL)
 
 print("""Drop your letter in one of the 7 columns of the grid.
 Be the first to get 4 in a row to win. If your opponent
-is getting too close to 4 in a row, block him/her with
+is getting too close to 4 in a row, block him with
 your own letter!\n""")
 
 # For the grid of the game
