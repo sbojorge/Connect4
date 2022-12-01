@@ -7,6 +7,13 @@ import pyfiglet
 from colorama import (Fore, Back,
                       Style)
 
+print(Fore.RED, pyfiglet.figlet_format('Connect 4', font='larry3d'))
+print(Style.RESET_ALL)
+
+print("""Drop your letter in one of the 7 columns of the grid.
+Be the first to get 4 in a row to win. If your opponent
+is getting too close to 4 in a row, block him with
+your own letter!\n""")
 
 # For the grid of the game
 
@@ -145,30 +152,16 @@ def check_horizontal_win():
                     print('PLAYER WINS')
                 else:
                     print('COMPUTER WINS')
-                    # Stop game
-                # game_running = False
             # Increase row number
-        row_number += 1
-
-
-def check_vertical_win():
-    """
-    Checks for 4 in a column
-    """
-
-
-def check_diagonal_win():
-    """
-    Checks for 4 in a diagonal
-    """
+            row_number += 1
 
 
 def play_game():
     """
     Main function for playing Connect 4
     """
-    # create_board()
-    # welcome()
+    create_board()
+    welcome()
     game_running = True
     while game_running:
         players_input()

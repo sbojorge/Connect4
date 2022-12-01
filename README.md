@@ -8,7 +8,7 @@ In this command-line version of Connect 4, the user plays against the computer a
 User is player 1 (R) and computer is player 2 (Y).
 
 User is prompted to choose a column number for dropping his/her letter and the computer randomly provides a column number for dropping its.
-The game will run until someone makes 4 in a row.
+The game should run until someone makes 4 in a row.
 
 ![mockup of the app on different devices](assets/images/image-1.webp)
 
@@ -99,7 +99,7 @@ These are the steps followed for completing the deployment:
 ![Manually deploy image](assets/images/image-11.webp)
 
 
- Heroku will make the necessary and a button 'View your page' will redirect you to the deployed application.
+ Heroku will make the necessary and a button 'View' will redirect you to the deployed application.
 
  ![View button image](assets/images/image-12.webp)
 
@@ -108,7 +108,7 @@ These are the steps followed for completing the deployment:
 
 [Wikipedia](https://en.wikipedia.org/wiki/Connect_Four) for the explanatory text about the Connect 4 game.
 
-Code Institute for the provided template and credits for deploying on Heroku.
+
 
 ## Acknowledgments
 
