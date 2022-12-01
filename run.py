@@ -35,7 +35,7 @@ def create_board():
 
     headers = [0, 1, 2, 3, 4, 5, 6]
 
-    print(Back.BLACK, tabulate(rows, headers, tablefmt='grid',
+    print(Back.BLUE, tabulate(rows, headers, tablefmt='grid',
           showindex='always'))
     print(Style.RESET_ALL)
     print('\n')
@@ -148,9 +148,9 @@ def check_horizontal_win():
             # Check is set is made and that set isn't matching 4 empty strings
             if len(check) == 1 and '' not in check:
                 if 'R' in check:
-                    print('You win!')
+                    print('You win, CONGRATS! Press RUN PROGRAM to play again')
                 else:
-                    print('I win!')
+                    print('I win! Press RUN PROGRAM to play again')
                 # Stop game
                 game_running = False
         # Increase row number
@@ -168,7 +168,7 @@ def check_winner():
         game_running = False
 
 
-def play_game():
+def main():
     """
     Main function for playing Connect 4
     """
@@ -181,4 +181,4 @@ def play_game():
         check_horizontal_win()
 
 
-play_game()
+main()
