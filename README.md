@@ -1,6 +1,8 @@
 # **CONNECT 4**
 
-Connect Four (also known as Connect 4, Four Up, Plot Four, Find Four, Captain's Mistress, Four in a Row, Drop Four, and Gravitrips in the Soviet Union) is a two-player connection board game, in which the players choose a color and then take turns dropping colored tokens into a seven-column, six-row vertically suspended grid. The pieces fall straight down, occupying the lowest available space within the column. The objective of the game is to be the first to form a horizontal, vertical, or diagonal line of four of one's own tokens.
+Connect Four (also known as Connect 4, Four Up, Plot Four, Find Four, Captain's Mistress, Four in a Row, Drop Four, and Gravitrips in the Soviet Union) is a popular two-player connection board game, in which the players choose a color and then take turns dropping colored tokens into a seven-column, six-row vertically suspended grid. The pieces fall straight down, occupying the lowest available space within the column. The objective of the game is to be the first to form a horizontal, vertical, or diagonal line of four of one's own tokens.
+
+For my project I made a simplified version where the the winner is the first one to have 4 in a **horizontal row**.
 
 ## How to play
 
@@ -37,7 +39,8 @@ Only integers from 0-6 are accepted as valid input. If validation fails, the use
 ![image of the exceptions raised for invalid input of the column number](assets/images/image-4.webp)
 
 ### Future features
-- Adding a score and keeping track of it.
+
+- Adding the functionality to win with 4 in vertical or diagonal row as in the classic game.
 - Adding extra levels of difficulty by playing on a bigger grid.
 
 
@@ -64,6 +67,7 @@ Some warnings and infos. remain as shown below:
 None action was taken on those because:
 - player and computer variables aren't constants. They were set as global variables because accesing them as required for different functions to properly work;
 - snake_case naming style doesn't apply in the case of the variable 'e' (as error in Python).
+
 
 ## Deployment
 
@@ -108,6 +112,10 @@ These are the steps followed for completing the deployment:
 
 [Wikipedia](https://en.wikipedia.org/wiki/Connect_Four) for the explanatory text about the Connect 4 game.
 
+The check_horizontal_win function was inspired by the last comment on this article on Slack:
+https://stackoverflow.com/questions/71003762/checking-if-list-contains-same-element-in-straight-row
+
+My mentor helped me to tune the code for that function.
 
 
 ## Acknowledgments
