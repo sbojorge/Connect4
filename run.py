@@ -44,6 +44,7 @@ def create_board():
 # Global variables
 player = None
 computer = random.randint(0, 6)
+game_running = True
 
 
 def welcome():
@@ -73,9 +74,8 @@ def players_input():
     checks that input is valid
     """
     try:
-        global computer
         global player
-        computer = random.randint(0, 6)
+        global computer
         player = int(input('Please choose a column from 0-6: \n'))
         if player not in range(7):
             raise ValueError('Valid numbers for playing are 0-6.\n'
@@ -106,14 +106,13 @@ def display_choices_player():
             rows[0][player] = 'R'
         else:
             print('Tie!')
-    else:
-        print("Your current choice isn't valid")
 
 
 def display_choices_computer():
     """
     Display computer's position on the grid
     """
+    global computer
     if rows[5][computer] == '':
         rows[5][computer] = 'Y'
     elif rows[4][computer] == '':
@@ -136,7 +135,7 @@ def check_horizontal_win():
     """
     Check if there are 4 in a row
     """
-    # check horizontal
+    global game_running
     # Set row number
     row_number = 0
     # Outer loop so we can loop through each row
@@ -149,11 +148,24 @@ def check_horizontal_win():
             # Check is set is made and that set isn't matching 4 empty strings
             if len(check) == 1 and '' not in check:
                 if 'R' in check:
-                    print('PLAYER WINS')
+                    print('You win!')
                 else:
-                    print('COMPUTER WINS')
-            # Increase row number
-            row_number += 1
+                    print('I win!')
+                # Stop game
+                game_running = False
+        # Increase row number
+        row_number += 1
+        return game_running
+
+
+def check_winner():
+    """
+    Checks if there's a winner
+    """
+    global game_running
+    row_winner = check_horizontal_win()
+    if row_winner:
+        game_running = False
 
 
 def play_game():
@@ -162,7 +174,6 @@ def play_game():
     """
     create_board()
     welcome()
-    game_running = True
     while game_running:
         players_input()
         display_choices_player()
