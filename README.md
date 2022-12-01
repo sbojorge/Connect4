@@ -68,6 +68,18 @@ None action was taken on those because:
 - player and computer variables aren't constants. They were set as global variables because accesing them as required for different functions to properly work;
 - snake_case naming style doesn't apply in the case of the variable 'e' (as error in Python).
 
+### Testing the code
+
+Regarding the user's input (name and choice of column), I tried using wrong values to check that the exceptions worked as expected and that once the input is valid the game goes on.
+Images of these are available above on the features section.
+
+## Bugs
+
+### Fixed bugs
+Display_choice_computer was not getting update after the first run.
+I fixed this by adding computer = random.randit(0, 6) at the botton of the function.
+My purpose being to "re roll the dice".
+
 
 ## Deployment
 
