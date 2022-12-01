@@ -129,6 +129,7 @@ def display_choices_computer():
         print('Tie!')
 
     create_board()
+    computer = random.randint(0, 6)
 
 
 def check_horizontal_win():
