@@ -1,0 +1,35 @@
+# Specifies the Node.js runtime environment for your application.
+# Use a recent, supported Node.js version.
+runtime: nodejs20 # Or nodejs22, check App Engine docs for latest supported versions
+
+# Specifies the entry point command for your Total.js application.
+# This tells App Engine to run your index.js file using Node.js.
+entrypoint: node index.js
+
+# Defines handlers for URL paths to either serve static files or route requests to your app.
+handlers:
+# This handler routes all requests (e.g., '/', '/some_path', WebSocket connections)
+# to your Node.js application (`index.js`).
+# Your Total.js server will then be fully responsible for:
+# 1. Serving index.html (rendered via layout.html).
+# 2. Serving any other static assets (CSS, client-side JavaScript from 'default.js', images).
+# 3. Handling the WebSocket connection for your terminal.
+- url: /.*
+  script: auto # Tells App Engine to use the entrypoint defined above for all incoming requests.
+
+# Environment variables accessible within your App Engine instance.
+env_variables:
+  # This is CRUCIAL for Node.js to find the Python executable.
+  # App Engine Standard instances come with a system Python 3 installed.
+  # Adding its common path to the environment's PATH variable ensures 'node-pty' can find it.
+  PATH: /usr/bin/python3:/usr/local/bin:/usr/bin:/bin:/opt/google/nodejs/bin
+
+# Specifies the App Engine Standard instance class. F1 is the smallest and cheapest.
+# It scales down to zero instances when idle, which is perfect for very low traffic.
+instance_class: F1
+
+# Automatic scaling settings.
+automatic_scaling:
+  min_instances: 0 # IMPORTANT: Scales down to zero to minimize costs when there's no activity.
+  max_instances: 1 # Start with 1 instance. For a personal portfolio project with minimal traffic,
+                   # this should be more than sufficient for concurrent users.
