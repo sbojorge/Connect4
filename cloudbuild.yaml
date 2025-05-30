@@ -1,0 +1,4 @@
+steps:
+  - name: 'gcr.io/google-appengine/exec-wrapper'
+    env: ['PROJECT_ID=$PROJECT_ID']
+    args: ['deploy', 'app.yaml']
