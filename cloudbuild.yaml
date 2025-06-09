@@ -4,5 +4,5 @@ steps:
   args:
   - '-c'
   - 'gcloud config set app/cloud_build_timeout 1600 && gcloud app deploy' # Adjust timeout if your app is large
-  timeout: '1600s' # Should be greater than gcloud app deploy's internal timeout
+  timeout: '1600s' # Should be greater than gcloud app deploy's internal timeout.
 
