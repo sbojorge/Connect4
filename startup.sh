@@ -1,26 +1,43 @@
 #!/bin/bash
 
-echo "Starting App Engine startup script..."
+# --- Start Python Dependency Setup ---
+echo "Starting Python dependency installation..."
 
-# Ensure pip is for python3 and install dependencies
-# The -t /tmp/python_deps flag installs packages to a temporary directory.
-# We then add this directory to PYTHONPATH so Python can find them.
-# This avoids modifying system-wide packages or needing write access to common locations.
-echo "Installing Python dependencies from python_game/requirements.txt..."
-python3 -m pip install -r python_game/requirements.txt --target=/tmp/python_deps
+# Navigate to the directory containing requirements.txt
+# IMPORTANT: Adjust 'game/' if your requirements.txt is not in a 'game' subdirectory.
+# For example, if requirements.txt is in the root, you'd use 'cd .' or skip this line.
+cd game/
 
-# Check if pip installation was successful
-if [ $? -ne 0 ]; then
-  echo "ERROR: Failed to install Python dependencies. Please check requirements.txt and logs."
+# Attempt to install Python dependencies
+# 'python3 -m pip' is generally more robust than just 'pip'
+# The '|| {' block will catch any errors from pip install and exit the script.
+python3 -m pip install -r requirements.txt || {
+  echo "ERROR: Failed to install Python dependencies during startup. Check pip output above."
   exit 1
-fi
+}
 
-# Add the temporary installation directory to PYTHONPATH
-# This makes the installed packages available to your run.py script
-export PYTHONPATH=/tmp/python_deps:$PYTHONPATH
+echo "Python dependencies installed successfully."
 
-echo "Python dependencies installed successfully. Starting Node.js application..."
+# Add the temporary installation directory to PYTHONPATH if needed
+# App Engine's default pip install usually puts packages in a standard location
+# that Python can find automatically. You might not need this line.
+# If your Python scripts need to import from a specific 'lib' folder,
+# you'll need to adjust where pip installs packages (e.g., pip install -t lib).
+# For now, let's keep it simple and assume default install location works.
+# export PYTHONPATH=/tmp/python_deps:$PYTHONPATH # Re-add if your Python code can't find installed packages
+
+
+# Navigate back to the root of your application (if you changed directory)
+# This assumes your index.js is in the root or an expected location relative to the root.
+cd -
+
+# --- End Python Dependency Setup ---
+
+
+echo "Starting Node.js application..."
 
 # Start your Node.js application
 # This should be the last command in the script
+# App Engine will automatically set the PORT environment variable.
+# Your Node.js app (index.js) must listen on this port.
 node index.js
