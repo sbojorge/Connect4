@@ -1,24 +1,23 @@
-# Specifies the Node.js runtime environment for your application.
-runtime: nodejs20 # Or nodejs22
+# nodejs-service/app.yaml
+runtime: nodejs20 # Use nodejs20 or nodejs22 as per your preference and Total.js compatibility
+service: frontend # This makes it your main, web-facing service.
+                 # You can also name it 'frontend' or similar.
 
-# Specifies the entry point command for your Total.js application.
-# Now, App Engine will run our startup script.
-entrypoint: bash startup.sh
+# This is the command App Engine will execute to start your Node.js application.
+# Your index.js must listen on the port provided by the PORT environment variable.
+entrypoint: node index.js
 
-# Defines handlers for URL paths to either serve static files or route requests to your app.
-handlers:
-- url: /.*
-  script: auto # Your Total.js app will handle all routing and WebSockets.
-
-# Environment variables accessible within your App Engine instance.
-env_variables:
-  # This is CRUCIAL for Node.js (and the startup script) to find the Python executable.
-  PATH: /usr/bin/python3:/usr/local/bin:/usr/bin:/bin:/opt/google/nodejs/bin
-
-# Specifies the App Engine Standard instance class. F1 is the smallest and cheapest.
 instance_class: F1
-
-# Automatic scaling settings.
 automatic_scaling:
   min_instances: 0
   max_instances: 1
+
+# Handlers for URL paths. If Total.js handles all routing, this is fine.
+handlers:
+- url: /.*
+  script: auto
+
+# Any Node.js specific environment variables can go here
+env_variables:
+  # Example: If your Total.js app needs a specific environment
+  NODE_ENV: production
