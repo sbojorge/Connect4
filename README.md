@@ -136,5 +136,5 @@ As usual, thanks a million to my patient and loving family.
 
 To my awesome mentor, Daisy McGuirr, for her guidance and support.
 
-Warm thanks to the CI community on Slack who remains a source to turn to when searching for quick answers.
+Warm thanks to the CI community on Slack who remains a source to turn to when searching for quick answers
 
