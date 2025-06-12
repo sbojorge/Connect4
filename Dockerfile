@@ -25,7 +25,8 @@ RUN npm install --production
 # Copy your game/ directory which contains requirements.txt
 COPY game/ game/
 # Install Python dependencies during the build process
-RUN python3 -m pip install --no-cache-dir -r game/requirements.txt
+# Use --break-system-packages to override the "externally-managed-environment" error
+RUN python3 -m pip install --no-cache-dir -r game/requirements.txt --break-system-packages
 
 # --- Copy the rest of your application code ---
 # This includes your index.js and the simplified startup.sh
