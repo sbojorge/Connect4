@@ -3,8 +3,8 @@
 
 echo "--- Executing startup.sh ---"
 echo "Current directory: $(pwd)"
-echo "Listing contents of /app:"
-ls -F /app
+echo "Listing contents of /game:"
+ls -F /game
 echo "Attempting to start Node.js application..."
 
 # Your Node.js application (index.js) must listen on the PORT environment variable.
