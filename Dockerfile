@@ -1,18 +1,18 @@
-# Use a Node.js base image that's based on Debian (e.g., Bookworm),
-# as this makes it easy to install Python via apt.
+# Use node:20-slim which points to the latest slim Node.js 20 image,
+# typically based on the current stable Debian release (Bookworm).
 FROM node:20-slim
 
 # Set the working directory in the container
 WORKDIR /app
 
-# --- Install Python and pip ---
-# Update apt-get and install python3 and python3-pip
-# --no-install-recommends helps keep the image size down
+# --- Install Python and pip, AND build tools ---
+# Update apt-get and install python3, python3-pip, AND build-essential
+# build-essential provides 'make', 'gcc', 'g++', which are needed by node-gyp for native modules.
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
     python3 \
     python3-pip \
-    curl && \
+    build-essential && \
     rm -rf /var/lib/apt/lists/*
 
 # --- Install Node.js dependencies ---
@@ -25,11 +25,10 @@ RUN npm install --production
 # Copy your game/ directory which contains requirements.txt
 COPY game/ game/
 # Install Python dependencies during the build process
-# This is more robust than trying to install them in startup.sh at runtime.
 RUN python3 -m pip install --no-cache-dir -r game/requirements.txt
 
 # --- Copy the rest of your application code ---
-# This includes your index.js and startup.sh
+# This includes your index.js and the simplified startup.sh
 COPY . .
 
 # Make the startup script executable
