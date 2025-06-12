@@ -1,6 +1,6 @@
 # Use a Node.js base image that's based on Debian (e.g., Bookworm),
 # as this makes it easy to install Python via apt.
-FROM node:20-slim-bookworm
+FROM node:20-slim
 
 # Set the working directory in the container
 WORKDIR /app
